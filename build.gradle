@@ -2,6 +2,7 @@ group 'com.saucelabs.examples'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
+apply plugin: 'idea'
 
 sourceCompatibility = 1.8
 
@@ -10,5 +11,20 @@ repositories {
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile 'org.seleniumhq.selenium:selenium-java:3.4.0'
+
+    testCompile 'org.testng:testng:6.14.2'
+    testCompile 'org.assertj:assertj-core:3.9.0'
+}
+
+test {
+    systemProperties System.getProperties()
+
+    dependsOn cleanTest
+    testLogging.showStandardStreams = true
+
+    useTestNG() {
+        parallel 'methods'
+        threadCount 10
+    }
 }
