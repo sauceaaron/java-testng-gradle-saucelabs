@@ -1,0 +1,24 @@
+# Gradle
+.gradle
+/build
+
+# IDEA
+.idea
+/*.iml
+/*.ipr
+/*.iws
+
+# Eclipse
+*.classpath
+*.project
+*.settings
+.metadata/
+
+# Vim
+*.sw[op]
+
+# macOS
+.DS_Store
+
+# Logs
+/*.log
